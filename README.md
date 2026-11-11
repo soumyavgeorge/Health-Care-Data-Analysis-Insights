@@ -140,3 +140,57 @@ Before proceeding with exploratory data analysis and dashboard development, raw 
   * Retained core analytical attributes: `Customer ID`, `First Name`, `BMI`, `HbA1C`, `Heart Issues`, `Any Transplants`, `Cancer history`, `NumberOfMajorSurgeries`, `smoker`, `Weight Status`, `Diabetes Status`, `Date of Birth`, `charges`, `Hospital tier`, `City tier`, `State ID`, and `Age`.
 
 ## 4. Exploratory Data Analysis
+
+## Overview
+This project consolidates three separate source tables into a single, analysis-ready master sheet named **Health Care**. The consolidation is done entirely in Microsoft Excel using `VLOOKUP`, with **Customer ID** as the common key across all tables.
+
+## Workbook Structure
+
+| Sheet | Records | Description |
+|---|---|---|
+| **Customer Names** | 2,335 | Customer identity details: Customer ID, full name, title, first name, last name |
+| **Medical Examinations** | 2,335 | Clinical indicators: BMI, HbA1c, heart issues, transplants, cancer history, major surgeries, smoking status |
+| **Hospitalisation Details** | 2,343 | Hospital and demographic details: date of birth, age, children, charges, hospital tier, city tier, state ID |
+| **Health Care** *(output)* | 2,335 | Consolidated master table combining all three sources |
+
+## Methodology
+
+### 1. Key Column
+The **Customer ID** column was copied from the *Customer Names* sheet into column A of the new *Health Care* sheet. It serves as the lookup key for every other column.
+
+### 2. Data Consolidation with VLOOKUP
+All remaining columns in *Health Care* are populated with exact-match `VLOOKUP` formulas (`range_lookup = 0`), pulling values from the relevant source sheet.
+
+```excel
+=VLOOKUP(lookup_value, table_array, col_index_num, 0)
+```
+
+Example, fetching BMI from *Medical Examinations*:
+
+```excel
+=VLOOKUP(A2,'Medical Examinations '!A:J,2,0)
+```
+
+### 3. Column Mapping
+
+| Health Care Column | Source Sheet | Source Column Index |
+|---|---|---|
+| First Name | Customer Names | 4 |
+| BMI | Medical Examinations | 2 |
+| HBA1C | Medical Examinations | 4 |
+| Heart Issues | Medical Examinations | 6 |
+| Any Transplants | Medical Examinations | 7 |
+| Cancer History | Medical Examinations | 8 |
+| Number of Major Surgeries | Medical Examinations | 9 |
+| Smoker | Medical Examinations | 10 |
+| Weight Status | Medical Examinations | 3 |
+| Diabetes Status | Medical Examinations | 5 |
+| Date of Birth | Hospitalisation Details | 5 |
+| Charges | Hospitalisation Details | 8 |
+| Hospital Tier | Hospitalisation Details | 9 |
+| City Tier | Hospitalisation Details | 10 |
+| State ID | Hospitalisation Details | 11 |
+| Age | Hospitalisation Details | 6 |
+
+## Outcome
+A single clean dataset, one row per customer, ready for exploratory analysis, pivot tables and dashboards.
