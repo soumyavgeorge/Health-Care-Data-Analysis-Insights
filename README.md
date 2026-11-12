@@ -194,3 +194,109 @@ Example, fetching BMI from *Medical Examinations*:
 
 ## Outcome
 A single clean dataset, one row per customer, ready for exploratory analysis, pivot tables and dashboards.
+# Healthcare Data Analysis and Insights (Excel)
+
+Pivot tables, pivot charts and an interactive dashboard built in Microsoft Excel to analyse customer health and hospitalisation data for **2,335 patients**.
+
+---
+
+## Pivot Tables and Charts (Analysis Sheet)
+
+All pivot tables are built from the combined **HealthCare** sheet.
+
+### 1. Cancer History: Smokers vs Non-Smokers (Donut Chart)
+**Pivot setup:** Rows = Smoker > Cancer history | Values = Count of Customer ID
+
+| Smoker | No Cancer History | Cancer History | Total |
+|---|---|---|---|
+| Yes | 404 | 84 | 488 |
+| No | 1,540 | 307 | 1,847 |
+
+**Insight:** About 17.2% of smokers and 16.6% of non-smokers have a cancer history, so the difference is small.
+
+### 2. Major Surgeries and Average HbA1c by Transplant History (Donut Chart)
+**Pivot setup:** Rows = Any Transplants | Values = Sum of NumberOfMajorSurgeries, Average of HbA1c
+
+| Any Transplants | Sum of Major Surgeries | Avg HbA1c |
+|---|---|---|
+| No | 1,417 | 6.67 |
+| Yes | 162 | 5.19 |
+| **Total** | 1,579 | 6.58 |
+
+**Insight:** Patients with a transplant history have a lower average HbA1c (5.19 vs 6.67).
+
+### 3. Healthcare Charges by Weight Status and Diabetes Status (Column Chart)
+**Pivot setup:** Rows = Diabetes Status > Weight Status | Values = Average of charges
+
+| Diabetes Status | Normal Weight | Obesity | Over Weight | Under Weight |
+|---|---|---|---|---|
+| Diabetes (avg $16,120) | $12,464 | $19,285 | $14,174 | $7,443 |
+| Normal (avg $12,091) | $7,897 | $15,140 | $10,377 | $6,911 |
+| Prediabetes | $10,492 | $15,283 | $9,741 | $5,648 |
+
+**Insight:** Charges are highest for patients with obesity in every group, and lowest for underweight patients.
+
+### 4. Average Charges by Hospital Tier Across States (Stacked Bar Chart)
+**Pivot setup:** Rows = State ID | Columns = Hospital tier | Values = Average of charges
+
+| Hospital Tier | Average Charges |
+|---|---|
+| Tier 1 | $30,189.68 |
+| Tier 2 | $11,865.27 |
+| Tier 3 | $9,462.27 |
+| **Overall** | $13,523.52 |
+
+**Insight:** Tier 1 hospitals cost far more than Tier 2 and Tier 3. States R1020, R1021, R1022 and R1025 show $0 for Tier 1 because they have no Tier 1 records.
+
+### 5. Age vs BMI and HbA1c (Scatter Plot)
+**Pivot setup:** Rows = Age group | Values = Average of BMI, Average of HbA1c
+
+| Age Group | Avg BMI | Avg HbA1c |
+|---|---|---|
+| 18-27 | 30.21 | 5.59 |
+| 28-37 | 31.28 | 5.54 |
+| 38-47 | 30.74 | 6.52 |
+| 48-57 | 31.26 | 8.05 |
+| 58-67 | 32.06 | 8.10 |
+
+**Insight:** HbA1c rises with age (5.59 to 8.10) while BMI stays almost flat (about 30 to 32).
+
+### 6. Age vs Healthcare Charges (Scatter Plot)
+**Pivot setup:** Rows = Age group | Values = Average of charges
+
+| Age Group | Avg Charges |
+|---|---|
+| 18-27 | $8,622.41 |
+| 28-37 | $12,159.76 |
+| 38-47 | $14,874.16 |
+| 48-57 | $16,480.54 |
+| 58-67 | $19,232.18 |
+
+**Insight:** Charges increase steadily with age.
+
+---
+
+## Interactive Dashboard
+
+The **Dashboard** sheet brings all the charts together.
+
+**KPI Cards**
+- Total Patients: **2,335**
+- Average Age: **39.22**
+- Average Charges: **$13,529.92**
+
+**Charts**
+- Impact of Smoking on Cancer Prevalence (donut)
+- Average Healthcare Charges by Hospital Tier Across States (stacked bar)
+- Healthcare Expenditure across Weight and Diabetes Status (column)
+- Major Surgeries & Average HbA1c by Transplant History (donut)
+- Comparative Trends of BMI and HbA1c Across Age (scatter)
+- Impact of Patient Age on Healthcare Expenditure (scatter)
+
+**Slicers**
+- **Weight Status** and **Diabetes Status** slicers are connected to the pivot tables through *Report Connections*, so one click filters the dashboard.
+
+**Key Takeaways**
+- Obesity combined with diabetes gives the highest charges.
+- Age is the clearest driver of both HbA1c and charges.
+- Hospital tier has a large effect on cost.
