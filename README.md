@@ -194,11 +194,6 @@ Example, fetching BMI from *Medical Examinations*:
 
 ## Outcome
 A single clean dataset, one row per customer, ready for exploratory analysis, pivot tables and dashboards.
-# Healthcare Data Analysis and Insights (Excel)
-
-Pivot tables, pivot charts and an interactive dashboard built in Microsoft Excel to analyse customer health and hospitalisation data for **2,335 patients**.
-
----
 
 ## Pivot Tables and Charts (Analysis Sheet)
 
@@ -300,3 +295,14 @@ The **Dashboard** sheet brings all the charts together.
 - Obesity combined with diabetes gives the highest charges.
 - Age is the clearest driver of both HbA1c and charges.
 - Hospital tier has a large effect on cost.
+
+
+## Conclusion
+
+This project demonstrates an end-to-end healthcare data analysis workflow in Excel. Raw data from multiple sheets was cleaned, transformed and combined using **VLOOKUP**. **Pivot tables** summarised key patterns, and an interactive **dashboard** with slicers presents the insights in one view.
+
+Overall, structured data cleaning and pivot-based summarisation turn scattered healthcare records into clear, decision-ready insights.
+
+## Tools Used
+
+Microsoft Excel (VLOOKUP, Pivot Tables, Charts, Slicers)
